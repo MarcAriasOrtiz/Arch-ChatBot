@@ -10,7 +10,9 @@ ApplicationWindow {
   visible: true
   color: "#000000"
 
-  property int currentTab: 0
+  // property int currentTab: 0 // por si pones tab bar arriba con varias opciones
+
+  // property string initialText: ""
 
   ColumnLayout {
     anchors.fill: parent
@@ -25,16 +27,6 @@ ApplicationWindow {
       }
     }
 
-
-    /*
-    CustomTabBar {
-      id: topBar
-      Layout.fillWidth: true
-      Layout.preferredHeight: 50
-      currentTab: root.currentTab
-      onCurrentTabChanged: root.currentTab = currentTab
-    }
-*/
     CustomTextArea {
       id: chatArea
       Layout.fillWidth: true
@@ -53,6 +45,23 @@ ApplicationWindow {
     }
   }
   Component.onCompleted: {
+    console.log(initialText)
+
+    if (typeof initialText !== "string") {
+        console.log("❌ initialText no es string:", initialText, typeof initialText)
+    } else if (initialText.length === 0) {
+        console.log("⚠️ initialText está vacío")
+    } else {
+        console.log("✅ Texto recibido:", initialText)
+    }
+    
     chatArea.loadMessages("Oni-Bot")
+
+
+    if (initialText && initialText.length > 0) {
+      chatArea.addMessage("Mao", initialText)
+      chatArea.showTypingBubble()
+      chatArea.sendMessageBackend(initialText)
+    }
   }
 }
