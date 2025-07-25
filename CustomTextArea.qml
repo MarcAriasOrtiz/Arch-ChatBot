@@ -100,7 +100,7 @@ ScrollView {
       }
     }
     var body = {
-      "model"/*: "tngtech/deepseek-r1t2-chimera:free",*/ /*: "meta-llama/llama-4-maverick:free",*/:"deepseek/deepseek-r1-0528-qwen3-8b:free",
+      //"model"/*: "tngtech/deepseek-r1t2-chimera:free",*/ /*: "meta-llama/llama-4-maverick:free",*/:"deepseek/deepseek-r1-0528-qwen3-8b:free",
       "text":text    }
     xhr.send(JSON.stringify(body))
   }
