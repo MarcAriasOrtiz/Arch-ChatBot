@@ -1,5 +1,3 @@
-#!/.venv/bin/python
-
 # Standard libs
 import subprocess
 import logging

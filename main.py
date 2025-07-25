@@ -7,7 +7,6 @@ from PySide6.QtCore import QUrl
 
 # Standard libs
 import sys
-import json
 
 # Project libs
 from libs.get_clipboard import get_clipboard
